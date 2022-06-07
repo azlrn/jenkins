@@ -1,9 +1,11 @@
 node{
     stage("scm"){
         echo "gathering code from version control"
+        git branch: 'main', url: 'https://github.com/azlrn/hellopipeline.git'
     }
     stage("Build"){
         echo "Building"
+        sh "mvn clean install"
     }
     stage("Test"){
         echo "Testing"
